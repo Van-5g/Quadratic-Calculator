@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quad Formula</title>
+</head>
+<body>
+
+    <h2>quad Formula Calculator</h2>
+
+    <label for="a">Enter the value of a:</label>
+    <input type="number" id="a"><br><br>
+
+    <label for="b">Enter the value of b:</label>
+    <input type="number" id="b"><br><br>
+
+    <label for="c">Enter the value of c:</label>
+    <input type="number" id="c"><br><br>
+
+    <button onclick="quad()">Calculate</button>
+
+    <h4 id="result"></h4>
+
+    <script>
+        function quad() {
+            var a = parseFloat(document.getElementById('a').value);
+            var b = parseFloat(document.getElementById('b').value);
+            var c = parseFloat(document.getElementById('c').value);
+    
+            var discriminant = (b * b) - (4 * a * c);
+            var x1, x2;
+
+        if (discriminant > 0) {
+            x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            document.getElementById('result').innerText = "x1 = " + x1 + ", x2 = " + x2;
+        } else if (discriminant === 0) {
+            x1 = -b / (2 * a);
+            document.getElementById('result').innerText = "x1 = x2 = " + x1;
+        } 
+        else {
+            document.getElementById('result').innerText = "x1 = imaginary, x2 = imaginary";
+        }  
+    }
+    </script>
+
+</body>
+</html>
